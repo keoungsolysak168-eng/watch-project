@@ -46,8 +46,13 @@
       </div>
 
       <div class="product-actions">
-        <button class="btn btn-primary">ADD TO BAG</button>
-        <button class="btn btn-secondary">ADD TO WISHLIST</button>
+        <button class="btn btn-primary" (click)="addToCart()">
+          <span class="btn-icon">🛍️</span> ADD TO BAG
+        </button>
+        <button class="btn btn-secondary" (click)="toggleWishlist()">
+          <span class="btn-icon">{{ isInWishlist ? '❤️' : '🤍' }}</span> 
+          {{ isInWishlist ? 'IN WISHLIST' : 'ADD TO WISHLIST' }}
+        </button>
       </div>
 
       <div class="product-meta">
