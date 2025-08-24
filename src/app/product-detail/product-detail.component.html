@@ -1,0 +1,82 @@
+<div class="product-detail-container" *ngIf="product">
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="../assets/images/logo-removebg-preview.png" width="400px" alt="Logo">
+    </div>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/product">Product</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a routerLink="/product">Products</a> > 
+    <span>{{ product.name }}</span>
+  </div>
+
+  <!-- Product Detail Section -->
+  <div class="product-detail">
+    <div class="product-images">
+      <div class="main-image">
+        <img [src]="product.image" [alt]="product.name">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <div class="product-header">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-reference">Reference: {{ product.reference }}</p>
+        <div class="product-price">{{ product.price }}</div>
+      </div>
+
+      <div class="product-description">
+        <h3>Description</h3>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div class="product-features" *ngIf="product.features">
+        <h3>Features</h3>
+        <ul>
+          <li *ngFor="let feature of product.features">{{ feature }}</li>
+        </ul>
+      </div>
+
+      <div class="product-actions">
+        <button class="btn btn-primary">ADD TO BAG</button>
+        <button class="btn btn-secondary">ADD TO WISHLIST</button>
+      </div>
+
+      <div class="product-meta">
+        <div class="meta-item">
+          <span class="meta-label">Availability:</span>
+          <span class="meta-value">In Stock</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Shipping:</span>
+          <span class="meta-value">Free Worldwide</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Returns:</span>
+          <span class="meta-value">30 Days</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="back-section">
+    <button class="btn btn-back" (click)="goBack()">
+      ← Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="loading" *ngIf="!product">
+  <div class="spinner"></div>
+  <p>Loading product details...</p>
+</div>

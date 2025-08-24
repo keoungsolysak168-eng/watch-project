@@ -3,38 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rolex Website</title>
- 
+  <title>Breitling - Luxury Swiss Watches</title>
 </head>
 <body>
-
   <!-- Navigation -->
   <nav>
-    <div class="logo"><img src="../assets/images/logo-removebg-preview.png" width="400px"> </div>
+    <div class="logo">
+      <img src="../assets/images/logo-removebg-preview.png" width="300px" alt="Breitling Logo">
+    </div>
     <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/product">Product</a></li>
-    <li><a routerLink="/contact-us">Contact Us</a></li>
-    <li><a routerLink="/about-us">About Us</a></li>
+      <li><a routerLink="/" class="active">Home</a></li>
+      <li><a routerLink="/product">Product</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+      <li class="cart-icon">
+        <a routerLink="/cart" class="cart-link">
+          🛍️ <span class="cart-count" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>LÈON BREITLING<br><span>1884</span></h1>
-      <p>Breitling is a Swiss luxury watch brand, founded in 1884 by Léon Breitling. The word “Breitling” itself is simply the founder’s family name, which later became the brand’s identity. Over time, the name has grown to symbolize precision, aviation, adventure, and luxury craftsmanship. </p>
-      <a href="#" class="btn">Discover More</a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>LÈON BREITLING<br><span>1884</span></h1>
+        <p>Breitling is a Swiss luxury watch brand, founded in 1884 by Léon Breitling. The word "Breitling" itself is simply the founder's family name, which later became the brand's identity. Over time, the name has grown to symbolize precision, aviation, adventure, and luxury craftsmanship.</p>
+        <div class="hero-buttons">
+          <a routerLink="/product" class="btn btn-primary">Explore Collection</a>
+          <a routerLink="/about-us" class="btn btn-secondary">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="../assets/images/1a1.png" alt="Breitling Watch">
+      </div>
     </div>
-    <div class="hero-img">
-      <img src="../assets/images/1a1.png" alt="Rolex Watch">
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2>Why Choose Breitling?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✈️</div>
+          <h3>Aviation Heritage</h3>
+          <p>Born from aviation, our watches are designed for pilots and adventurers who demand precision and reliability.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>Swiss Craftsmanship</h3>
+          <p>Each timepiece is meticulously crafted in Switzerland using the finest materials and cutting-edge technology.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Innovation</h3>
+          <p>Pioneering advancements in chronograph technology and precision engineering since our founding.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💎</div>
+          <h3>Luxury Design</h3>
+          <p>Timeless aesthetics that combine classic elegance with contemporary sophistication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Preview Section -->
+  <section class="products-preview">
+    <div class="container">
+      <h2>Featured Collections</h2>
+      <p>Discover our most iconic timepieces that define luxury and precision</p>
+      
+      <div class="products-grid">
+        <div class="product-preview-card">
+          <img src="../assets/images/Classic AVI AVI 1953 Edition.jpg" alt="Classic AVI 1953">
+          <div class="product-info">
+            <h3>Classic AVI 1953</h3>
+            <p>The legendary Ref. 765 reimagined for the modern era</p>
+            <a routerLink="/product" class="preview-btn">View Collection</a>
+          </div>
+        </div>
+        
+        <div class="product-preview-card">
+          <img src="../assets/images/Navitimer B01 Chronograph 46.jpg" alt="Navitimer B01">
+          <div class="product-info">
+            <h3>Navitimer B01</h3>
+            <p>The iconic pilot's watch with the legendary slide rule bezel</p>
+            <a routerLink="/product" class="preview-btn">View Collection</a>
+          </div>
+        </div>
+        
+        <div class="product-preview-card">
+          <img src="../assets/images/Classic AVI Super AVI B04 Chronograph GMT 46 P-51 Mustang.jpg" alt="Super AVI GMT">
+          <div class="product-info">
+            <h3>Super AVI GMT</h3>
+            <p>Advanced GMT functionality meets aviation-inspired design</p>
+            <a routerLink="/product" class="preview-btn">View Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Our Legacy</h2>
+          <p>For over 140 years, Breitling has been at the forefront of precision timekeeping. From our early chronographs to today's sophisticated smartwatches, we've maintained an unwavering commitment to quality, innovation, and the spirit of adventure.</p>
+          <p>Our watches have accompanied explorers, pilots, and adventurers on their most daring missions, proving that true luxury is built on reliability and performance.</p>
+          <a routerLink="/about-us" class="about-btn">Learn More</a>
+        </div>
+        <div class="about-image">
+          <img src="../assets/images/watchAboutUs.jpg" alt="Breitling Heritage">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Find Your Perfect Timepiece?</h2>
+      <p>Visit our store or contact our experts for personalized assistance</p>
+      <div class="cta-buttons">
+        <a routerLink="/product" class="btn btn-primary">Shop Now</a>
+        <a routerLink="/contact-us" class="btn btn-secondary">Contact Us</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Breitling | Luxury Watches</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Breitling</h4>
+        <p>Swiss luxury watches since 1884. Precision, innovation, and adventure define our legacy.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/product">Products</a></li>
+          <li><a routerLink="/about-us">About</a></li>
+          <li><a routerLink="/contact-us">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p>📍 123 Luxury Watch Street<br>Phnom Penh, Cambodia</p>
+        <p>📞 +855 78 439 879</p>
+        <p>✉️ breitling&#64;gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Breitling | Luxury Swiss Watches | All Rights Reserved</p>
+    </div>
   </footer>
-
 </body>
 </html>

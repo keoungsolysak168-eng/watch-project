@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Breitling</title>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="../assets/images/logo-removebg-preview.png" width="300px" alt="Breitling Logo">
+    </div>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/product">Product</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+      <li class="cart-icon">
+        <a routerLink="/cart" class="cart-link active">
+          🛍️ <span class="cart-count" *ngIf="cartItems.length > 0">{{ getTotalItemCount() }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Cart Header -->
+  <section class="cart-header">
+    <div class="container">
+      <h1>🛍️ Shopping Cart</h1>
+      <p *ngIf="cartItems.length === 0">Your cart is empty. <a routerLink="/product">Continue shopping</a></p>
+    </div>
+  </section>
+
+  <!-- Cart Content -->
+  <section class="cart-content" *ngIf="cartItems.length > 0">
+    <div class="container">
+      <div class="cart-layout">
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <div class="cart-item" *ngFor="let item of cartItems">
+            <div class="item-image">
+              <img [src]="item.image" [alt]="item.name">
+            </div>
+            <div class="item-details">
+              <h3>{{ item.name }}</h3>
+              <p class="item-ref">Ref: {{ item.reference }}</p>
+              <p class="item-price">${{ item.price.toLocaleString() }}</p>
+            </div>
+            <div class="item-quantity">
+              <label>Quantity:</label>
+              <div class="quantity-controls">
+                <button class="qty-btn" (click)="updateQuantity(item.id, item.quantity - 1)">-</button>
+                <span class="qty-display">{{ item.quantity }}</span>
+                <button class="qty-btn" (click)="updateQuantity(item.id, item.quantity + 1)">+</button>
+              </div>
+            </div>
+            <div class="item-total">
+              <p class="total-price">${{ (item.price * item.quantity).toLocaleString() }}</p>
+            </div>
+            <div class="item-actions">
+              <button class="remove-btn" (click)="removeFromCart(item.id)">
+                🗑️ Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-item">
+            <span>Subtotal:</span>
+            <span>${{ getTotal().toLocaleString() }}</span>
+          </div>
+          <div class="summary-item">
+            <span>Shipping:</span>
+            <span>Free</span>
+          </div>
+          <div class="summary-item total">
+            <span>Total:</span>
+            <span>${{ getTotal().toLocaleString() }}</span>
+          </div>
+          <button class="checkout-btn" (click)="clearCart()">
+            🛒 Proceed to Checkout
+          </button>
+          <button class="clear-btn" (click)="clearCart()">
+            🗑️ Clear Cart
+          </button>
+          <a routerLink="/product" class="continue-shopping">
+            ← Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Empty Cart Message -->
+  <section class="empty-cart" *ngIf="cartItems.length === 0">
+    <div class="container">
+      <div class="empty-cart-content">
+        <div class="empty-cart-icon">🛍️</div>
+        <h2>Your cart is empty</h2>
+        <p>Looks like you haven't added any watches to your cart yet.</p>
+        <a routerLink="/product" class="btn-primary">Start Shopping</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
