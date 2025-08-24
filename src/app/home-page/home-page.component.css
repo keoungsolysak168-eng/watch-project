@@ -1,0 +1,148 @@
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      overflow-x: hidden;
+    }
+        nav {
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px; /* bigger padding */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease;
+    }
+
+    nav .logo {
+      color: gold;
+      font-size: 36px;  /* Bigger Logo */
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      transition: transform 0.3s ease;
+    }
+
+    nav .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 50px;  /* more space between links */
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;  /* Bigger navigation text */
+      font-weight: 600;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+   
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 100px;
+      background: linear-gradient(to right, #fff, #e9ecef);
+      min-height: 90vh;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .hero-text {
+      max-width: 50%;
+      animation: slideLeft 1.2s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .hero-text h1 span {
+      color: goldenrod;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 35px;
+      background: black;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .btn:hover {
+      background: goldenrod;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-img img {
+      max-width: 600px;
+      border-radius: 12px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
